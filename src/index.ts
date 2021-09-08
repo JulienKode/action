@@ -17,12 +17,6 @@ const getOptionalInput = (name: string) => core.getInput(name) || undefined;
   console.log("setting git user");
   await gitUtils.setupUser();
 
-  console.log("setting GitHub credentials");
-  await fs.writeFile(
-    `${process.env.HOME}/.netrc`,
-    `machine github.com\nlogin github-actions[bot]\npassword ${githubToken}`
-  );
-
   let { changesets } = await readChangesetState();
 
   let publishScript = core.getInput("publish");
