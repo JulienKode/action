@@ -7,12 +7,14 @@ export const setupUser = async () => {
     "--global",
     "user.name",
     `"github-actions[bot]"`,
+     "--replace-all",
   ]);
   await exec("git", [
     "config",
     "--global",
     "user.email",
     `"github-actions[bot]@users.noreply.github.com"`,
+     "--replace-all",
   ]);
 };
 
